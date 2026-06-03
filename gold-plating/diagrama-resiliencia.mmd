@@ -1,0 +1,10 @@
+flowchart LR
+    A["Backend / API Principal"] --> B{"Circuit Breaker aberto?"}
+    B -- "Não" --> C["Chama Serviço de IA"]
+    C --> D{"Resposta OK?"}
+    D -- "Sim" --> E["Retorna recomendações personalizadas"]
+    D -- "Não" --> F["Consulta Cache Redis"]
+    B -- "Sim" --> F
+    F --> G{"Existe cache?"}
+    G -- "Sim" --> H["Retorna recomendações salvas"]
+    G -- "Não" --> I["Retorna filmes populares"]

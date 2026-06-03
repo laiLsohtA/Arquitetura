@@ -1,0 +1,25 @@
+flowchart TB
+    usuario["Usuário da Plataforma"]
+
+    subgraph cloud["Ambiente em Nuvem"]
+        gateway["API Gateway"]
+        frontend["Frontend Web/App"]
+        backend["Backend / API Principal"]
+        ia["Serviço de Recomendação com IA"]
+        db[("Banco de Dados")]
+        cache[("Cache Redis")]
+        monitoramento["Monitoramento e Logs"]
+    end
+
+    usuario --> frontend
+    frontend --> gateway
+    gateway --> backend
+    backend --> db
+    backend --> cache
+    backend --> ia
+    ia --> db
+    ia --> cache
+    backend --> monitoramento
+    ia --> monitoramento
+    gateway --> monitoramento
+    cache -. fallback .-> backend
