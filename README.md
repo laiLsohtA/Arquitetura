@@ -215,6 +215,7 @@ Os ADRs da Fase 3 documentam as decisões sobre nuvem, resiliência e modelo de 
 
 
 
+
 ## Estado atual da arquitetura na Fase 3
 
 A arquitetura atual segue o estilo de **microsserviços**, separando as responsabilidades principais:
@@ -241,16 +242,16 @@ A arquitetura atual segue o estilo de **microsserviços**, separando as responsa
 
 ```mermaid
 flowchart TB
-    usuario\["Usuário da Plataforma"]
+    usuario\\\["Usuário da Plataforma"]
 
-    subgraph cloud\["Ambiente em Nuvem"]
-        gateway\["API Gateway"]
-        frontend\["Frontend Web/App"]
-        backend\["Backend / API Principal"]
-        ia\["Serviço de Recomendação com IA"]
-        db\[("Banco de Dados")]
-        cache\[("Cache Redis")]
-        monitoramento\["Monitoramento e Logs"]
+    subgraph cloud\\\["Ambiente em Nuvem"]
+        gateway\\\["API Gateway"]
+        frontend\\\["Frontend Web/App"]
+        backend\\\["Backend / API Principal"]
+        ia\\\["Serviço de Recomendação com IA"]
+        db\\\[("Banco de Dados")]
+        cache\\\[("Cache Redis")]
+        monitoramento\\\["Monitoramento e Logs"]
     end
 
     usuario --> frontend
@@ -324,14 +325,6 @@ Este repositório é principalmente arquitetural e documental. Mesmo assim, a es
 git clone https://github.com/laiLsohtA/Arquitetura.git
 cd Arquitetura
 ```
-
-Caso os serviços sejam implementados futuramente com Docker, a execução poderá seguir uma ideia parecida com:
-
-```bash
-docker compose up --build
-```
-
-Como o foco da entrega é a documentação arquitetural, os arquivos principais a serem avaliados estão em `README.md`, `/docs/adrs/`, `/docs/sad/` e `/gold-plating/`.
 
 ## Referências
 
